@@ -5,14 +5,16 @@ Funcionalidade: Restaurantes
     Sendo um usuário que deseja pedir comida
     Posso acessar a lista de restaurantes
 
+    Contexto: Lista de restaurantes
+        Dado que eu tenha uma lista de restaurantes
+
     Cenario: Todos os restaurantes
 
         Quando acesso a lista de restaurantes
         Então vejo todas as opções disponíveis
 
-    @temp
     Cenario: Categorias
-    
+
         Quando acesso a lista de restaurantes
         Então cada restaurante deve exibir sua categoria
 
