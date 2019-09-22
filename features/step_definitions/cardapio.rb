@@ -7,12 +7,12 @@ Quando("eu escolho o restaurante {string}") do |restaurante|
 end
   
 Então("eu vejo os seguintes itens no cardápio:") do |table|
-    items = all('.menu-item-info-box')
+    itens = all('.menu-item-info-box')
     produto_dados = table.hashes
     produto_dados.each_with_index do |value, index|
-        expect(items[index]).to have_text value["produto"].upcase
-        expect(items[index]).to have_text value["descricao"]
-        expect(items[index]).to have_text value["preco"]
+        expect(itens[index]).to have_text value["produto"].upcase
+        expect(itens[index]).to have_text value["descricao"]
+        expect(itens[index]).to have_text value["preco"]
     end
 end
 
