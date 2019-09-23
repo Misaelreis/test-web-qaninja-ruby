@@ -1,26 +1,34 @@
 #language: pt
-
+    
+    @breadbakery @tt
     Funcionalidade: Remover do carrinho
         Para que eu possa manter meu carrinho com itens desejados
         Sendo um cliente que desistiu de um ou mais produtos
         Posso remover itens do carrinho
 
-        Cenário: Remover um item
-
+        Contexto: Itens no carrinho
             Dado que eu tenha os seguintes itens no carrinho
-                | Nome                   | Preço     |
-                | Cup Cake               | R$ 8,70   |
-                | Donut                  | R$ 2,50   |
-                | Pão Artesanal Italiano | R$ 15, 90 |
-            Quando eu removo somente o item 1
-            Então o valor total deve ser de "R$ 18,40"
+                | nome                   | Preço     | quantidade |
+                | Cup Cake               | R$ 8,70   | 1          |
+                | Donut                  | R$ 2,50   | 1          |
+
+        Esquema do Cenário: Remover todos os item
+
+            Quando eu removo somente o <item>
+            Então o valor total é de <total>
+
+            Exemplos:
+            | item | total      |
+            | 0    | "R$ 2,50" |
+            | 1    | "R$ 8,70" |
 
         Cenário: Remover todos os itens
 
-            Dado que eu tenha os seguintes itens no carrinho
-                | Nome                   | Preço     |
-                | Cup Cake               | R$ 8,70   |
-                | Donut                  | R$ 2,50   |
-                | Pão Artesanal Italiano | R$ 15, 90 |
             Quando eu removo todos os itens
-            Então vejo a mensagem no carrinho "Seu carrinho está vazio!"
+            Então vejo a seguinte mensagem no carrinho "Seu carrinho está vazio!"
+
+        Cenário: Limpar carrinho
+
+            Quando eu limpo o meu carrinho
+            Então vejo a seguinte mensagem no carrinho "Seu carrinho está vazio!"
+

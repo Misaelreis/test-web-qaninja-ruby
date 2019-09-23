@@ -10,28 +10,28 @@ Funcionalidade: Adicionar ao carrinho
 
         Dado que o produto desejado é "Cup Cake"
         E o valor do produto é de "R$ 8,70"
-        Quando eu adiciono 1 unidade
-        Então 1 unidade deste deve ser adicionada ao carrinho
+        Quando eu adiciono 1 unidade(s)
+        Então deve ser adicionado 1 unidade(s) deste item
         E o valor total é de "R$ 8,70"
 
     Cenário: Adicionar 2 unidades
 
         Dado que o produto desejado é "Donut"
         E o valor do produto é de "R$ 2,50"
-        Quando eu adiciono 2 unidades
-        Então duas unidades devem ser adicionadas ao carrinho
+        Quando eu adiciono 2 unidade(s)
+        Então deve ser adicionado 2 unidade(s) deste item
         E o valor total é de "R$ 5,00"
 
     Cenário: Adicionar vários itens
 
         Dado que os produtos desejados são:
 
-            | Nome                   | Preço     |
-            | Cup Cake               | R$ 8,70   |
-            | Donut                  | R$ 2,50   |
-            | Pão Artesanal Italiano | R$ 15, 90 |
+            | nome                   | preço     | quantidade |
+            | Cup Cake               | R$ 8,70   | 1          |
+            | Donut                  | R$ 2,50   | 2          |
+            | Pão Artesanal Italiano | R$ 15, 90 | 1          |
         Quando eu adiciono todos os itens
         Então vejo todos os itens no carrinho
-        E o valor total deve ser de "R$ 27,10"
+        E o valor total é de "R$ 29,60"
 
     

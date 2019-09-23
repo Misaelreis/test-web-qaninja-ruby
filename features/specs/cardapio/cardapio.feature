@@ -1,10 +1,12 @@
 #language: pt
 
-@cp
 Funcionalidade: Informações adicionais
     Para que eu possa ver as informações adicionais
     Sendo um usuário que escolheu um restaurante
     Posso ver a categoria, descrição detalhada e horário de funcionamento
+
+    Contexto: restaurantes
+        Dado que eu acesso a lista de restaurantes
 
     Cenário: Detalhe do restaurante
         Dado que eu acesso a lista de restaurantes
@@ -18,4 +20,4 @@ Funcionalidade: Informações adicionais
     Cenário: Carrinho vazio
         
         Quando eu escolho o restaurante "Burger House"
-        Então vejo a mensagem no carrinho "Seu carrinho está vazio!"
+        Então vejo a seguinte mensagem no carrinho "Seu carrinho está vazio!"
