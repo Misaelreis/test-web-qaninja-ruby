@@ -1,5 +1,6 @@
 #language: pt
 
+@menu
 Funcionalidade: Informações adicionais
     Para que eu possa ver as informações adicionais
     Sendo um usuário que escolheu um restaurante
