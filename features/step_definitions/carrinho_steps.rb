@@ -8,16 +8,16 @@ end
   
 Quando("eu adiciono {int} unidade\\(s)") do |quantidade|
     quantidade.times do
-        @cart.list
+        @restaurant_menu.list(@produto_nome)
     end
 end
 
 Então("deve ser adicionado {int} unidade\\(s) deste item") do |qtd|
-    expect(@cart.box).to have_text "(#{qtd}x) #{@produto_nome}"
+    expect(@restaurant_menu.cart.box).to have_text "(#{qtd}x) #{@produto_nome}"
 end
   
 Então("o valor total é de {string}") do |valor_total|
-    expect(@cart.total.text).to eql valor_total
+    expect(@restaurant_menu.cart.total.text).to eql valor_total
 end
 
 #lista de produtos
@@ -28,14 +28,14 @@ end
 Quando("eu adiciono todos os itens") do
     @produto_lista.each do |p|
         p["quantidade"].to_i.times do 
-            @cart.item
+            @restaurant_menu.list(p["nome"])
         end
     end
 end
   
 Então("vejo todos os itens no carrinho") do
     @produto_lista.each do |p|
-        expect(@cart.box).to have_text "(#{p["quantidade"]}x) #{p["nome"]}"
+        expect(@restaurant_menu.cart.box).to have_text "(#{p["quantidade"]}x) #{p["nome"]}"
     end
 end
 
@@ -48,23 +48,23 @@ Dado("que eu tenha os seguintes itens no carrinho") do |table|
 end
   
 Quando("eu removo somente o item {int}") do |item|
-    @cart.remover_item(item)
+    @restaurant_menu.cart.remover_item(item)
 end
 
 Quando("eu removo somente o {int}") do |item|
-    @cart.remover_item(item)
+    @restaurant_menu.cart.remover_item(item)
 end
 
 Quando("eu removo todos os itens") do
     @produto_lista.each_with_index do |value, indx|
-        @cart.remover_item(indx)
+        @restaurant_menu.cart.remover_item(indx)
     end
 end
 
 Quando("eu limpo o meu carrinho") do
-    click_button "Limpar"
+    @restaurant_menu.cart.clean
 end
   
 Então("vejo a seguinte mensagem no carrinho {string}") do |mensagem|
-    expect(@cart.box).to have_text mensagem
+    expect(@restaurant_menu.cart.box).to have_text mensagem
 end

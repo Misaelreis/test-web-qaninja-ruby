@@ -3,11 +3,11 @@ Dado("que temos os seguintes restaurantes") do |table|
 end
 
 Quando("acesso a lista de restaurantes") do
-    visit ('/restaurants')
+    @restaurant_page.load
 end
 
 Então("devo ver todos os restaurantes desta lista") do
-    restaurantes = all('.restaurant-item')
+    restaurantes = @restaurant_page.list
     @restaurante_data.each_with_index do |value, index|
         expect(restaurantes[index]).to have_text value['nome'].upcase
         expect(restaurantes[index]).to have_text value['categoria']
