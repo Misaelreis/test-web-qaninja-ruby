@@ -34,3 +34,8 @@ Na pasta raiz do projeto rode o comando:
 ```shell
 cucumber
 ```
+## 2) Executando Projeto e gerando relatório  ##
+Na pasta raiz do projeto rode o comando:
+```shell
+rake specs
+```
