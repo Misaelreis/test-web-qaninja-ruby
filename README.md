@@ -30,12 +30,22 @@ bundle install
 ```
 
 ## 2) Executando Projeto ##
-Na pasta raiz do projeto rode o comando:
+Na pasta raiz do projeto rode o comando com o navegador chrome:
 ```shell
-cucumber
+rake specs["","-p chrome"]
 ```
-## 2) Executando Projeto e gerando relatório  ##
-Na pasta raiz do projeto rode o comando:
+
+Na pasta raiz do projeto rode o comando com o navegador chrome headless:
 ```shell
-rake specs
+rake specs["","-p chromeheadless"]
+```
+
+Na pasta raiz do projeto rode o comando com o navegador firefox:
+```shell
+rake specs["","-p firefox"]
+```
+
+Na pasta raiz do projeto rode o comando com o navegador firefox headless:
+```shell
+rake specs["","-p firefoxheadless"]
 ```
